@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStories</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#2d6cdf',
+                hide: '#777777'
+              }
+            }
+          }
+        }
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+                    *{
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+    
+        }
+                body,html{
+                    
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .main{
+                    height: fit-content;
+                    width: fit-content;
+                    padding: 30px;
+                    background-color: #fff;
+                    border-radius: 25px;
+
+                }
+                #form-2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                }
+                .inputstyle{
+                    height: 40px;
+                    padding-left: 10px;
+                    width: 350px;
+                    outline: none;
+            
+                    border-bottom: 2px solid #ccc;
+                    margin: 5px 0;
+                    padding: 10px;
+                    font-size: 15px;
+                }
+                .bg{
+                    background: linear-gradient(120deg, rgba(35, 89, 227, 0.6), rgb(241, 88, 164)) no-repeat;
+                }
+                .btn-submit{
+                    width: 100%;
+                    height: 40px;
+                    outline: none;
+                    border-radius: 10px;
+                    border: none;
+                    background-color:rgba(2, 65, 223, 0.6) ;
+                    color:#fff;
+                    font-size: 20px;
+                    margin: 10px 0;
+                    cursor: pointer;
+                    z-index: 99;
+                }
+    
+
+                div.error input{
+                    border-bottom: 2px solid rgb(233, 96, 119);
+                }
+                div.error .form-message{
+                    color: rgb(233, 96, 119);
+                }
+  
+        }
+
+      </style>
+</head>
+<body class="sm:bg bg-white">
+    <div class="main p-0 sm:p-7">
+        <form action="/add" method="POST" name="form2" id="form-2">
+            
+            <div class="w-full cursor-pointer text-3xl font-black text-black text-center">
+                <a href="/" class="text-center">My<span class="text-primary">Stories</span></a>  
+              </div>
+
+              
+                <p class="text-center">Cùng đăng ký thành viên mới nào!</p>
+
+                <div class="form-group my-2">
+                    <label for="fullname" class="form-label" >Your Username</label><br>
+                    <input class=" border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="text" id="username" name="username" placeholder="Tên của bạn" > <br>
+                    <span class="form-message" ></span> 
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label" >Your Email</label><br>
+                    <input class="border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="email" id="email" name="Email" placeholder="Email của bạn"> <br>
+                    <span class="form-message" ></span> 
+                </div>
+                <div class="form-group mb-2">
+                    <label for="password" class="form-label" >Your Password</label><br>
+                    <input class="border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="password" id="user-password" name="password" placeholder="Mật khẩu"> <br>
+                    <span class="form-message" ></span> 
+                </div>
+                <!-- <div class="form-group">
+                    <label for="password" class="form-label" >Password</label><br>
+                    <input type="text" class="password" name="password" placeholder="Mật khẩu"> <br>
+                    <span class="form-message" ></span> 
+                </div> -->
+                <div class="form-group">
+                    <label for="password" class="form-label" >Confirm Password</label><br>
+                    <input class="border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="password" id="confirm-password" name="confirm-password" placeholder="Nhắc lại mật khẩu"> <br>
+                    <span class="form-message" ></span> 
+                </div>
+                
+                <button type="submit" value="Sign up" class="w-40 h-10 border-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text mx-auto sm:btn-submit signUp">Đăng ký </button>
+            
+        </form>
+    </div>
+    <script type="text/javascript" src="./JS/signup.js">  
+    </script>
+</body>
+</html>

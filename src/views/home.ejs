@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <title>MyStories</title>
+    <script type="text/javascript" src="./JS/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#ccc',
+                hide: '#777777',
+                orange: '#F64C72'
+
+              }
+            }
+          }
+        }
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+          
+            .borderbox {
+              box-sizing: border-box;
+            }
+            .transparentcl{
+              background-color:transparent;
+            }
+            .corner1{
+              border-bottom-right-radius: 60%;
+              
+            }
+            .corner2{
+              border-top-left-radius: 60%;
+            }
+            .alo{
+              top: -200px;
+              width: 300px;
+              height: 400px;
+              border-radius: 20px;
+              margin: 0 auto;
+            }
+            .bg-light{
+              /* background-color: #63a4ff; */
+              background-color: #ffffff;
+            }
+            .bg-strong{
+              background-color: #ffffff;
+              /* background-image: linear-gradient(90deg,#136594,#6010a9); */
+            }
+            .rotatee135{
+              transform: rotate(135deg);
+            }
+            .triangle{
+              top: -17px;
+              width: 40px;
+              left: 176px;
+              z-index: -1;
+              transform: rotate(29.5deg)
+            }
+            .shadow{
+              box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px 5px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            }
+            .transform15{
+              transform: scale(1.1);
+            }
+            .bg{
+              width:fullscreen;
+              height:1500px;
+              background-color: white;
+            }
+            .arrow{
+              background: linear-gradient(315deg, #3B82F6 70%, #06B6D4 100%);
+              color:white;
+              border-radius: 100%;
+
+            }
+            .arrow-right{
+              position: absolute;
+              left:50px; 
+              top:300px;
+              cursor:pointer;
+            }
+            .arrow-left{
+              position: absolute;
+              right:50px; 
+              top:300px;
+              cursor:pointer;
+            }
+            .w250{
+              width: 500px;
+            }
+            *{
+                  padding: 0;
+                  margin:0;
+                  box-sizing: border-box;
+              }
+          .max-w-1280{
+                  max-width: 80rem;
+                }
+                .nonedisplay{
+                display: none;
+              }
+              .border-gal{
+                border: 5px solid black;
+                outline: none
+                
+              }
+  
+        }
+
+      </style>
+    
+</head>
+<body class="borderbox bg-strong">
+    <header class="flex justify-center h-20 transparentcl">
+      
+        <div class="flex items-center justify-between w-4/5 p-4 font-semibold text-white-500 max-w-1280">
+    
+            <div class=" w-1/4 lg:w-1/3 cursor-pointer text-3xl font-black md:text-center">
+              <a href="/" class="text-center text-orange">My<span class="text-black">Stories</span></a>  
+            </div>
+            <nav class="w-1/2 lg:w-1/3 md:block nonedisplay ">
+                <ul class="flex flex-row justify-evenly cursor-pointer md:text-black">
+                    <li class="font-semibold hover:text-primary duration-300">
+                    <a href="/" class="text-black">Home</a>
+                    </li>
+                    <li class="font-semibold hover:text-primary duration-300">
+                      <a href="./about" class="text-black">About</a>
+                    </li>
+                    <li class="font-semibold hover:text-primary duration-300">
+                    <a href="./gallery"class="text-black" >My Gallery</a>
+                    </li>
+                    <li class="font-semibold hover:text-primary duration-300 ">
+                    <a href="./blogs" class="text-black">Blogs</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex flex-row">  
+              <a href="./login">
+              <button  type="submit" class="bg-orange text-white w-1/4 hover:text-black hover:bg-white rounded-full w-40 sm:visible invisible h-10 hover:bg-none duration-700 ">
+                Đăng nhập
+              </button>
+            </a>
+            <div class="cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white visible md:invisible mx-4 md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h8m-8 6h16">
+              </svg>
+            </div>
+          </div>
+          
+        </div>
+    </header>
+    <main class="flex justify-center md:block flex-col bg-light">
+          <section class=" corner1 flex md:flex-row flex-col md:justify-evenly md:py-16 md:pb-32 gap-10 z-10 pb-20 pt-20 sm:py-36 bg-white md:w-full transparentcl "> 
+            <div class="sm:w-80 mx-auto lg:w-80 lg:w-fit md:mx-0 flex items-center justify-center sm:justify-center">
+                <img src="/img/item-2.png" alt="" class=" md:w-4/5 sm:w-4/5 w-72 md:h-auto mx-auto">
+              </div>
+              <div class="flex flex-col font-semibold sm:justify-center gap-2 sm:font-black sm:w-full sm:w-full md:w-fit">
+                  <h1 class="sm:text-6xl text-4xl text-center text-orange ">Hello,</h1>
+                  <h1 class="text-sm sm:text-lg text-center">Welcome to<span class="sm:text-5xl text-3xl text-orange">  My</span><span class=" text-5xl">Stories</span><h1>
+                    <p class="text-sm sm:text-lg  text-center ">Let's discover my Website</p>
+              </div>
+          </section>
+           <section class="w-full z-20 h-auto">
+            <div class="bg-light">
+              <h1 class=" font-bold text-5xl text-center p-5 ">My Knowledge</h1>
+              <p class=" font-semibld text-sm text-center ">Let me show you my Knowledge!</p>
+            </div>
+            <div class="bg-light w-full py-32 h-fit relative p-5 md:p-20">
+            
+                <div class="truncate justify-between flex w-fit my-slider p-auto py-5 bg-light mx-auto">
+            
+                    <div class=" bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing">
+                        <img src="/img/icon-1.png" alt="" class="w-20 mx-auto mb-5">
+                        <h3 class="font-bold mb-5">HTML 5</h3>
+                        <a href="https://html.com/" class=""><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700">
+                          Read more
+                        </button>
+                        </a>
+                    </div>
+            
+                    <div class="bg-white shadow mx-5 text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing">
+                        <img src="/img/icon-2.png" alt="" class="w-20 mx-auto mb-5">
+                        <h3 class="font-bold mb-5">CSS 3</h3>
+                        <a href="https://www.w3schools.com/Css/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                          Read more
+                        </button>
+                      </a>
+                    </div>
+            
+                    <div class="bg-white shadow mx-5 text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing">
+                        <img src="/img/icon-3.png" alt="" class="w-20 mx-auto mb-5">
+                        <h3 class="font-bold mb-5">JavaScript</h3>
+                        <a href="https://www.javascript.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                          Read more
+                        </button>
+                      </a>
+                    </div>
+            
+                    <div class="bg-white shadow mx-5 text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing">
+                        <img src="/img/icon-4.png" class=" w-20 mx-auto mb-10 " alt="">
+                        <h3 class="font-bold mb-8">SASS</h3 class="w-20">
+                        <a href="https://sass-lang.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                          Read more
+                        </button>
+                      </a>
+                    </div>
+            
+                    <div class="bg-white shadow mx-5  text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing"  >
+                        <img src="https://scrollrevealjs.org/img/logomark.svg" alt="" class="w-20 mx-auto mb-7">
+                        <h3 class="font-bold mb-10">ScrollReveal</h3>
+                        <a href="https://scrollrevealjs.org/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                          Read more
+                        </button></a>
+                    </div>
+            
+                    <div class="bg-white shadow mx-5 text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl cursor-grabbing">
+                        <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg" alt="" class="w-20 mx-auto mb-10">
+                        <h3 class="font-bold mb-10">Tailwindcss</h3>
+                        <a href="https://tailwindcss.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                          Read more
+                        </button>
+                      </a>
+                    </div>
+            
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 arrow arrow-right hover:transform15 duration-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 arrow arrow-left hover:transform15 duration-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+            
+            
+            </div>
+          </section>
+         <section class="flex  flex-col items-center ">
+          <h1 class="font-bold text-5xl text-center p-5 text-white ">My Gallery</h1>
+          <a href="/gallery" class="my-10">
+            <button  type="submit" class="bg-orange text-white w-1/4 hover:text-black hover:bg-white rounded-full w-40 h-10  duration-700">
+              See More
+            </button>
+          </a>
+                <div class=" popup w-4/5 h-fit columns-1 sm:columns-2 lg:columns-3 p-10 md:p-20 mx-auto rounded-3xl">
+                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal mt-0 hover:transform15 duration-300 cursor-pointer">
+                        <img src="/img/homegallery-2.jpeg" alt="" >
+                    </div>
+                  
+                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                        <img src="/img/homegallery-4.webp" alt="">
+                    </div>
+                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                        <img src="/img/homegallery-3.jpeg" alt="">
+                    </div>
+                      <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                        <img src="/img/homegallery-1.webp" alt="">
+                    </div>
+                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                      <img src="/img/homegallery-5.webp" alt="">
+                  </div >
+                  <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                    <img src="/img/homegallery-6.jpeg" alt="">
+                </div>
+                <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                  <img src="/img/homegallery-7.webp" alt="">
+              </div>
+              <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer ">
+                <img src="/img/homegallery-8.webp" alt="">
+            </div>
+                      
+                </div>
+         </section>
+          <section>
+            <div class="corner2 w-full h-96 bg-white mt-60 relative flex justify-center">
+              <div class=" bg-white absolute alo flex flex-col justify-evenly items-center shadow hover:transform15 duration-300">
+                <div class="w-96 h-12 blacksoft absolute bottom-14 h-auto rounded-full">
+                  <img src="./img/triangle.png" alt="" class="absolute triangle text-gray">
+                  <ul class="flex flex-row justify-evenly p-5 items-center h-fit gap-5 bg-black rounded-full">
+                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                      <img src="./img/facebook.png" alt="">
+                    </li>
+                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                      <img src="./img/youtube.png" alt="">
+                    </li>
+                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                      <img src="./img/instagram.png" alt="">
+                    </li>
+                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                      <img src="./img/twitter.png" alt="">
+                    </li>
+                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                      <img src="./img/telegram.png" alt="">
+                    </li>
+                  </ul>
+                </div>
+                    <div class="rounded-full truncate border-4 border-black ">
+                      <img src="./img/avatar1.jpg" alt="" class="w-28">
+                    </div>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600 hover:rotatee135 duration-700  hover:w-16 hover:h-16 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                      <div>
+                        <h2 class="font-extrabold text-xl text-center">Nguyễn Minh Thắng</h2>
+                        <p class="font-medium text-sm text-center">Front-End Developer</p>
+                      </div>
+                      <div class="borderbox w-full">
+                            <ul class="flex flex-row justify-evenly w-full">
+                      
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd" />
+                                </svg>
+                              
+                            
+                            </ul>
+                      </div>
+              </div>
+      
+            
+          </section>
+        
+         
+          <section>
+            <div class="bg-black w-full h-96">
+
+            </div>
+          </section>
+          
+    </main>
+   
+
+</body>
+<script>
+
+  const slider = tns({
+container: '.my-slider',
+loop: true,
+items: 1,
+slideBy: 'page',
+nav: true,    
+autoplay: true,
+speed: 400,
+autoplayButtonOutput: false,
+mouseDrag: true,
+lazyload: true,
+// controlsContainer: ".main-control",
+prevButton: ".arrow-right",
+nextButton: ".arrow-left",
+    responsive: {
+      640: {
+        // edgePadding: 20,
+        // gutter: 20,
+        items: 2
+      },
+      768: {
+        // gutter: 30,
+        items: 2
+      },
+      800:{
+        items: 2
+      },
+      850:{
+        items: 3
+      },
+      1000: {
+        items: 3
+      }
+    }
+});
+</script>
+</html>
