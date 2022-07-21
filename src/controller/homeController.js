@@ -5,7 +5,7 @@ import connection from "../config/connectDB"
 let getUser = (req,res) =>{
     connection.query("SELECT * FROM users", function(err, data){
         if(err) throw err
-       res.render("index.ejs", {data: data})     ;
+       res.render("users.ejs", {data: data})     ;
     });
 
 };
