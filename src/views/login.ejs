@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyStories</title>
    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script>
         tailwind.config = {
           theme: {
@@ -89,11 +90,11 @@
 </head>
 <body  class="sm:bg bg-white">
     <div class="main p-0 sm:p-7 flex sm:flex-row flex-col gap-7 items-center">
-        <form action="/" method="post" id="form-1" name="form1">
+        <form action="/users/login" method="post" id="form-1" name="form1">
           <h2 class="text-center text-md sm:text-lg">Đăng nhập bằng <span class="text-blue-500 cursor-pointer underline text-sm sm:text-md">Google?</span></h2>
             
             <div class=" w-full cursor-pointer text-2xl sm:text-4xl font-black text-black text-center my-5">
-                <a href="/" class="text-center">My<span class="text-primary">Stories</span></a>  
+                <a href="/users" class="text-center">My<span class="text-primary">Stories</span></a>  
               </div>
                 <div class="form-group my-2">
                     <label for="fullname" class="form-label" >Your Username</label><br>
@@ -102,7 +103,7 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="password" class="form-label" >Your Password</label><br>
-                    <input class="border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="password" id="user-password" name="userpassword" placeholder="Mật khẩu"> <br>
+                    <input class="border-b-2 h-12 text-sm w-72 border-gray-500 sm:inputstyle" type="password" id="user-password" name="password" placeholder="Mật khẩu"> <br>
                     <span class="form-message" ></span> 
                 </div>
                 <button type="submit" class="sm:btn-submit1 w-40 h-10 border-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text mx-auto" >Đăng Nhập</button>
@@ -125,7 +126,22 @@
     </div>
     </div>
     
-  <script type="text/javascript" src="./JS/login.js"> </script>
+  <script type="text/javascript" src="/JS/login.js"> 
+  //   function login(){
+  //     $.ajax({
+  //       url: '/users/login',
+  //       type: 'POST',
+  //       data: {
+  //         username: $('#username').val()
+  //         password: $('#user-password').val()
+  //       }
+  //     }).then(data=>{
+  //       setCookie("token", data.token, 1)
+  //     }).catch(err=>{
+  //       console.log(err)
+  //     })
+  //   }
+  </script>
 </body>
   
 </html>

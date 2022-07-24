@@ -9,6 +9,7 @@ const connection = mysql.createConnection({
   database: 'nodejsbasic'
 });
 
+
 // simple query
 // connection.query(
 //   'SELECT * FROM `users`',

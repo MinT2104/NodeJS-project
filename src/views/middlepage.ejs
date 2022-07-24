@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middlepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#ccc',
+                hide: '#777777',
+                orange: '#F64C72'
+
+              }
+            }
+          }
+        }
+      </script>
+    <style type="text/tailwindcss">
+       
+        @layer utilities {
+                    *{
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+    
+        }
+                body,html{
+                    /* background: linear-gradient(120deg, rgba(35, 89, 227, 0.6), rgb(241, 88, 164)) no-repeat;   */
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .bg{
+                  background: linear-gradient(120deg, rgba(35, 89, 227, 0.6), rgb(241, 88, 164)) no-repeat;
+                }
+           
+                
+                .animate-1 {
+                    position: relative;
+                    animation-name: animate-1;
+                    animation-duration: 3s;
+                    animation-iteration-count:1;
+                    
+                    }
+                .animate-2 {
+                    position: relative;
+                    animation-name: animate-2;
+                    animation-duration: 3s;
+                    animation-iteration-count:1;
+                    
+                    }
+
+                @keyframes animate-1 {
+                0%   { left:0px; top:-100px; opacity:0;}
+                100% { left:0px; top:0px; opacity:1;}
+                }
+                @keyframes animate-2 {
+                0%   { left:0px; top:100px; opacity:0;}
+                100% { left:0px; top:0px; opacity:1;}
+                }
+        }
+
+      </style>
+</head>
+<body class="bg"> 
+    <div class="flex flex-col sm:flex-row w-4/5 justify-evenly mx-auto gap-20">
+        <div class="flex flex-col justify-evenly p-5 bg-white max-w-96 h-60 rounded-3xl  text-center animate-1">
+            <h1 class="font-semibold text-2xl">You don't have an account?</h1>
+            <p class="font-medium text-md">Click to sign up!</p>
+            <a href="/add"> <button  type="submit" class=" w-4/5 md:w-72 h-10 border-2 rounded-full bg-orange text-white text mx-auto hover:text-black hover:border-black duration-700" >
+                Sign up
+            </button>
+        </a>
+           
+        </div>
+        
+        <div class="flex flex-col justify-evenly p-5 bg-white max-w-96 h-60 rounded-3xl text-center animate-2">
+            <h1 class="font-semibold text-2xl">Username is incorect!</h1>
+            <p class="font-medium text-md">Click to log in again :)</p>
+            <a href="/users/login" > <button type="submit" class=" w-4/5 md:w-72 h-10 border-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text mx-auto hover:text-black hover:border-black duration-700" >
+                Login
+            </button>
+        </a>
+           
+        </div>
+    </div>
+</body>
+</html>

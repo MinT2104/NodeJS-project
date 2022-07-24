@@ -31,7 +31,7 @@ openPop()
         <div class="addcomment">
             <div class="flex flex-row bg-gray-50 gap-2 p-3 shadow max-w-375">
               <div class="w-10 h-10 rounded-full truncate bg-red-500 m-2">
-                <img src="./img/avatar1.jpg" alt="">
+                <img src="/img/avatar1.jpg" alt="">
                
               </div>
                <p class="inputVal text-black w-4/5 overflow-hidden">
@@ -97,7 +97,7 @@ openPop()
         `
         <div class="flex flex-row bg-gray-50 gap-2 p-3 max-w-375 ">
         <div class="w-10 h-10 rounded-full truncate bg-red-500 m-2">
-          <img src="./img/avatar1.jpg" alt="">
+          <img src="/img/avatar1.jpg" alt="">
          
         </div>
          <p class="inputVal text-black w-4/5 break-words p-2">
@@ -117,7 +117,7 @@ openPop()
             `
             <div class="flex flex-row bg-gray-50 gap-2 p-3 max-w-375 ">
                 <div class="w-10 h-10 rounded-full truncate bg-red-500 m-2">
-                    <img src="./img/avatar1.jpg" alt="">
+                    <img src="/img/avatar1.jpg" alt="">
                 </div>
                 <p class="inputVal text-black w-4/5 break-words p-2">
                     ${type.value}

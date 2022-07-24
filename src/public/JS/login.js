@@ -1,9 +1,9 @@
-var form1 = document.getElementById('form-1')
-form1.addEventListener('submit',function(event){
+// var form1 = document.getElementById('form-1')
+// form1.addEventListener('submit',function(event){
 
-    event.preventDefault();
+//     event.preventDefault();
     
-});
+// });
 
 
 
@@ -52,15 +52,17 @@ function showSuc(value){
 }
 var btnSub = document.getElementById('btn-submit1')
 
-    form1.onsubmit = () => {
+    form1.onsubmit = (e) => {
           if(!userpassword.value){
             userpassword.parentElement.lastElementChild.innerText = "Password cannot be blank"
             userpassword.parentElement.classList.add('error')
+            e.preventDefault()
         }     
         if(!username.value){
             username.parentElement.lastElementChild.innerText = "Username cannot be blank"
             username.parentElement.classList.add('error')
             username.focus()
+            e.preventDefault()
         }
  
             // username.parentElement.lastElementChild.innerText = "Username cannot be blank"
