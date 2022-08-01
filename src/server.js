@@ -3,9 +3,7 @@ import express from "express";
 import configViewEngine from "./config/viewEngine"
 import initWebRoute from "./route/web";
 import cookieParser from "cookie-parser";
-// import passport from "passport";
 
-// var LocalStrategy = require('passport-local').Strategy
 var bodyParser = require('body-parser');
 require('dotenv').config();
 

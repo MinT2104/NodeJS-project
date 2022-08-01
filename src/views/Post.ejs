@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <style type="text/tailwindcss">
+      @layer utilities {
+          .transform15{
+            transform: scale(1.1);
+          }
+
+          *{
+                padding: 0;
+                margin:0;
+                box-sizing: border-box;
+            }
+   
+              .nonedisplay{
+              display: none;
+            }
+            .blockdisplay{
+              display: block;
+ 
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+    <section class="flex flex-row">
+        <div class="border-r-2 border-gray-500 h-screen">
+            <div class=" p-4 w-full text-center font-bold h-fit border-b-2 border-gray-500 bg-gray-300 ">
+              ADMIN DASHBOARD
+            </div>
+            <a href="/admin/users">
+              <div class=" userMan p-2 w-full text-center font-light h-fit cursor-pointer hover:transform15 duration-300">
+              Users manager 
+            </div>
+          </a>
+            <a href="/admin/posts">
+              <div class=" postMan p-2 w-full text-center font-light h-fit cursor-pointer hover:transform15 duration-300">
+              Post
+            </div>
+          </a>
+         </div>
+ <div class="flex flex-col items-center w-full">
+    <div class="postBox w-full">
+      <div class="container mt-3">
+       <a href="/admin/createpost" class="btn btn-info">Add Post</a>
+    <table class="table">
+      <thead>
+        <!-- <th>id</th> -->
+        <th>Type</th>
+        <th>Tile</th>
+        <th>Creator</th>
+        <th>Day</th>
+        <th>ImgUrl</th>
+        <th>Tool</th>
+
+
+      </thead>
+
+      <% 
+      for(var i=0; i<data.length;i++) { %>
+          <tr>
+             <!-- <td><%=data[i].id%></td> -->
+              <td> <%=data[i].type%></td>
+              <td><%=data[i].title%> </td>
+              <td> <%=data[i].creator%></td>
+              <td><%=data[i].day%> </td>
+              <td><%=data[i].imgurl%> </td>
+              <td>
+               <a href="/edit/<%=data[i].id%>" class="btn btn-primary">Sửa</a>
+               
+                <a href="/delete-user/<%=data[i].id%>" class="btn btn-danger">Xóa</a>
+                
+              </td>
+          </tr>
+           <% 
+      } %>
+              
+      <tbody>
+        
+      </tbody>
+    </table>
+    </div>
+  </div>
+  
+</div>
+    </section>
+  
+  
+  </body>
+  <script type="text/javascript" src="/JS/admin.js"></script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#ccc',
+                hide: '#777777',
+                orange: '#F64C72',
+                blacka: '#1C1C1C',
+                brown: "#282828"
+              }
+             
+            }
+          }
+        }
+      </script>
+       <style type="text/tailwindcss">
+        @layer utilities {
+            .transform15{
+              transform: scale(1.1);
+            }
+            .bg{
+              width:fullscreen;
+              height:1500px;
+              background-color: white;
+            }
+         
+            .w250{
+              width: 500px;
+            }
+            *{
+                  padding: 0;
+                  margin:0;
+                  box-sizing: border-box;
+              }
+            .w-650{
+                  max-width: 650px;
+                }
+            .w-fiit{
+                width: fit-content;
+            }
+                .nonedisplay{
+                display: none;
+              }
+              .blockdisplay{
+                display: block;
+              }
+         
+            .top_50{
+                top: -48px;
+            }
+        }
+
+      </style>
+</head>
+<body>
+<section class="flex flex-row h-screen bg-blacka">
+    <div class="w-1/4 h-screen border-r-2 border-gray-500 text-white">
+        <div class=" w-full cursor-pointer text-2xl font-black text-center py-3 border-b-2 border-gray-500 h-14">
+        <a href="/users" class="text-center text-orange">My<span class="text-white">Stories</span></a>  
+        </div>
+        <div class=" w-full text-lg font-medium text-center py-3 cursor-pointer">
+            Your Information 
+        </div>
+    </div>
+        <div class="w-3/4 h-screen text-white relative overflow-auto">
+            <div class="h-14 border-b-2 border-gray-500 flex items-center absolute top-0 right-0 w-full z-10 sticky bg-blacka">
+                <h1 class="font-black text-xl text-center w-full h-fit py-1">Your Information</h1>
+                <button class="editBtn py-2 bg-orange mr-5 rounded-xl px-4">Edit</button>
+            </div>
+    <form class="relative h-screen" action="/users/userprofile" method="POST">
+        <div class="absolute right-5 top_50 z-40">
+            <button class="saveBtn p-2 bg-blue-500 nonedisplay rounded-xl px-4">Save</button>
+
+        </div>
+        <div class="proWrapper bg-brown h-full flex flex-col items-left px-10 w-fiit mx-auto">
+ 
+                <div class="my-3 p-4">
+                    <span class="font-bold text-lg">Username : </span>
+
+                    <div class="flex flex-row items-center gap-2">
+                        <div class="w-96 bg-white text-black p-1 rounded-sm"><%=decoded["username"]%></div>
+                        <span class="currentPro text-gray-500 nonedisplay">( Current Username )</span>
+                    </div>
+                    <div class="flex flex-row mt-3 w-fit">
+                        <input  class="newVal p-1 w-96 rounded-sm nonedisplay text-black" type="text" name="username">
+                        <span class="currentPro text-gray-500 nonedisplay">( New Username )</span>
+                    </div>
+                </div>
+             
+
+                <div class="my-3 p-4 ">
+                    <span class="font-bold text-lg">Email : </span>
+
+                    <div class="flex flex-row items-center gap-2">
+                        <div class=" w-96 bg-white text-black p-1 rounded-sm"><%=decoded["email"]%></div>
+                        <span class="currentPro text-gray-500 nonedisplay">( Current Email )</span>
+                    </div>
+                    <div class="flex flex-row mt-3 w-full">
+                        <input  class="newVal p-1 w-96 rounded-sm nonedisplay text-black" type="text" name="Email">
+                        <span class="currentPro text-gray-500 nonedisplay">( New Email )</span>
+                    </div>
+                </div>
+             
+                
+                <div class="my-3 p-4">
+                    <span class="font-bold text-lg">Phone : </span>
+                    <div class="flex flex-row items-center ">
+                        <div class=" w-96 bg-white text-black p-1 rounded-sm"><%=decoded["phone"]%></div>
+                        <span class="currentPro text-gray-500 nonedisplay">( Current PhoneNumber )</span>
+                    </div>
+                    <div class="flex flex-row mt-3 w-full">
+                        <input  class="newVal p-1 w-96 rounded-sm nonedisplay text-black" type="text" name="phone">
+                        <span class="currentPro text-gray-500 nonedisplay">( New PhoneNumber )</span>
+                    </div>
+                </div>
+             
+
+                <div class="my-3 p-4">
+                    <span class="font-bold text-lg">Address : </span>
+                    <div class="flex flex-row items-center gap-2">
+                        <div class=" w-96 bg-white text-black p-1 rounded-sm"><%=decoded["address"]%></div>
+                        <span class="currentPro text-gray-500 nonedisplay">( Current Address )</span>
+                    </div>
+                    <div class="flex flex-row mt-3 w-full">
+                        <input  class="newVal p-1 w-96 rounded-sm nonedisplay text-black" type="text" name="address">
+                        <span class="currentPro text-gray-500 nonedisplay">( New Address )</span>
+                    </div>
+                </div>
+
+            </div>
+     </form>
+           
+        </div>
+        
+</section>
+   
+</body>
+<script type="text/javascript" src="/JS/userprofile.js"></script>
+</html>

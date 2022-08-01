@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+    <script src="//cdn.ckeditor.com/4.19.1/full/ckeditor.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .border1px{
+                border:1px black solid;
+            }
+          
+          
+            *{
+                  padding: 0;
+                  margin:0;
+                  box-sizing: border-box;
+              }
+              .transform15{
+              transform: scale(1.1);
+            }
+ 
+        }
+
+      </style>
+    
+</head>
+<body>
+  <form action="/admin/createpost" method="POST">    
+        <section class="flex flex-row relative">
+    <button class="absolute top-0 left-0 m-5 p-2 bg-blue-500 rounded-xl text-white hover:transform15 duration-300" type="submit">Save</button>
+    <div class="w-1/2 h-screen flex flex-col justify-center items-center gap-10">
+       <div class="font-bold text-3xl">
+        Create New Post
+       </div>
+       <div class="flex flex-col gap-2">
+        <span>Type:</span>
+        <select name="type" class="w-96 h-10 rounded-sm border1px p-2">
+            <option >...</option>
+            <option >Daily Life</option>
+            <option >Technology</option>
+        </select>
+       </div>
+       <div class="flex flex-col gap-2">
+        <span>Main Url Image:</span>
+        <input type="text" name="imgurl" class="w-96 h-10 rounded-sm border1px p-2">
+       </div>
+       <div class="flex flex-col gap-2">
+        <span>Title:</span>
+        <input type="text" name="title" class="w-96 h-10 rounded-sm border1px p-2">
+       </div>
+       <div class="flex flex-col gap-2">
+        <span>Day:</span>
+        <input type="text" name="day" class="w-96 h-10 rounded-sm border1px p-2">
+       </div>
+       <div class="flex flex-col gap-2">
+        <span>Creator:</span>
+        <input type="text" name="creator" class="w-96 h-10 rounded-sm border1px p-2">
+       </div>
+
+    </div>
+    <div class="w-1/2 border-l-2 border-black h-screen flex flex-col overflow-auto">
+        <div class="flex flex-col gap-2 p-3">
+            <span class="text-center w-full" >Content: </span>
+             <textarea name="content" id="editor1" cols="30" rows="10" class="m-2 h-40"></textarea>
+        </div>
+        <div class="flex flex-col gap-2  gap-2 p-3 text-center">
+            <span class="text-center w-full">Shortened Content</span>
+             <textarea name="shortcontent" id="editor2" cols="30" rows="10" class="m-2"></textarea>
+        </div>
+      
+    </div>
+</section>
+</form>
+
+    
+</body>
+<script src="../public/ckeditor/ckeditor.js">
+
+</script>
+ <script>
+    CKEDITOR.replace('content')
+    CKEDITOR.replace('shortcontent')
+
+ </script>
+</html>

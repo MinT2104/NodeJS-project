@@ -1,7 +1,41 @@
 
- 
+ScrollReveal(
+  { 
+    reset: true ,
+    distance: '60px',
+    duration: 2500,
+    delay:400
+});
+ScrollReveal().reveal('.Left', {delay: 300, origin: 'left'});
+ScrollReveal().reveal('.Right', {delay: 300, origin: 'right'});
+ScrollReveal().reveal('.Bottom', {delay: 300, origin: 'bottom'});
+ScrollReveal().reveal('.Top', {delay: 300, origin: 'top'});
+ //----------------------------------------header----------------------------------------------
+ var userBtn = document.querySelector(".userBtn");
+ var userNav = document.querySelector(".userNav");
+ var navPopup = document.querySelector(".navPopup");
+ var navMobie = document.querySelector(".navMobie");
 
-  
+ navPopup.onclick  = ()=>{
+  navMobie.classList.toggle("nonedisplay")
+ }
+
+  userBtn.addEventListener("mouseover",function(){
+   userNav.classList.add("blockdisplay")
+ })
+ userBtn.addEventListener("mouseout",function(){
+   userNav.classList.remove("blockdisplay")
+ })
+ userNav.addEventListener("mouseover",function(){
+   userNav.classList.add("blockdisplay")
+ })
+ userNav.addEventListener("mouseout",function(){
+   userNav.classList.remove("blockdisplay")
+ })
+
+ navPopup
+
+ //------------------------------------------body--------------------------------------------------
 openPop()
    
     function openPop(){
@@ -11,6 +45,7 @@ openPop()
    
      for(let i=0; i <= clickpopups.length; i++){
         clickpopups[i].onclick = function(){
+          popUp.classList.remove("nonedisplay")
             var urlImg = clickpopups[i].firstElementChild.src
              popUp.innerHTML = 
     `
@@ -19,12 +54,17 @@ openPop()
     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
 </svg>
 <div class="dark absolute bg-black opacity-50 w-full h-screen z-0"></div>
-<div class=" bg-white max-w-900 h-fit flex sm:flex-row flex-col shadow rounded-xl p-5 z-20 ">
-  <div class="img-popup rounded-2xl truncate h-fit flex my-auto items-center m-3">
+<div class=" bg-white max-w-900 h-fit flex sm:flex-row flex-col shadow rounded-xl p-5 z-20 py-10">
+  <div class="nonedisplay sm:blockdisplay img-popup rounded-2xl truncate h-fit flex my-auto items-center m-3">
     <img src=${urlImg} alt="" class="" >
   </div>
-   <div class="cmt-popup w-2/3 flex flex-col items-center pl-10 justify-between max-h-900 relative">
- <h3 class="z-20 truncate max-w-375 absolute top-0 left-10 fixed text-xl font-bold mb-3 border-b-2 border-b-gray-600 w-full text-center p-2">Comment</h3>    
+   <div class="cmt-popup w-full h-screen sm:w-2/3 flex flex-col items-center sm:pl-10 justify-between sm:max-h-900 relative">
+ <h3 class="z-20 truncate sm:max-w-375 sm:absolute top-0 fixed text-xl font-bold mb-3 border-b-2 border-b-gray-600 w-full text-center p-2">
+ <svg xmlns="http://www.w3.org/2000/svg" class=" z-20 backArrow h-6 w-6 absolute sm:nonedisplay" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+</svg>
+ Comment
+ </h3>    
  <div class="overflow-auto w-full mt-45">   
       
       <div class=" overflow-auto h-auto ">
@@ -85,7 +125,13 @@ openPop()
         popUp.innerHTML =''
         popUp.classList.remove('popup-gallery')
     }
+    var backArrow = document.querySelector(".backArrow")
    
+    backArrow.onclick= ()=>{
+      popUp.innerHTML =''
+        popUp.classList.remove('popup-gallery')
+    }
+
     var sendBtn = document.querySelector('.send-btn')
     var addcomment = document.querySelector('.addcomment')
     sendBtn.onclick = function(){

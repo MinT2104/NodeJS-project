@@ -1,92 +1,63 @@
-document.addEventListener('DOMContentLoaded', () => {
-    innerRes()
-    getImg(1);
-    });
-function innerRes(){
-    let imgs = document.querySelector(".imgs")
-    let imgss = document.querySelector(".imgss")
+
+ScrollReveal(
+  { 
+    reset: true ,
+    distance: '60px',
+    duration: 2500,
+    delay:400
+});
+ScrollReveal().reveal('.Left', {delay: 300, origin: 'left'});
+ScrollReveal().reveal('.Right', {delay: 300, origin: 'right'});
+ScrollReveal().reveal('.Bottom', {delay: 300, origin: 'bottom'});
+ScrollReveal().reveal('.Top', {delay: 300, origin: 'top'});
+
+
+
+     var userBtn = document.querySelector(".userBtn");
+    var userNav = document.querySelector(".userNav");
+    var userWrap = document.querySelector(".userWrap");
+    var navPopup = document.querySelector(".navPopup");
+    var navMobie = document.querySelector(".navMobie");
+
+    navPopup.onclick  = ()=>{
+      navMobie.classList.toggle("nonedisplay")
+     }
 
   
+     userBtn.addEventListener("mouseover",function(){
+      userNav.classList.add("blockdisplay")
+    })
+    userBtn.addEventListener("mouseout",function(){
+      userNav.classList.remove("blockdisplay")
+    })
+    userNav.addEventListener("mouseover",function(){
+      userNav.classList.add("blockdisplay")
+    })
+    userNav.addEventListener("mouseout",function(){
+      userNav.classList.remove("blockdisplay")
+    })
+    var rotateBtn = document.querySelector(".rotateBtn");
+    var in4 = document.querySelector(".in4");
 
-    // async function fetchImages(baseURL){
-    // const API_KEY = '563492ad6f917000010000015a6703d8ce184eb5b934d24398448a02'
-    // const baseURL = 'https://api.pexels.com/v1/'
-    //   const response = await fetch(baseURL, {
-    //     method: 'GET',
-    //     headers: {
-    //       Accept: 'application/json',
-    //       Authorization: API_KEY
-    //     }
-    //   });
-    //   const data = await response.json();
-    //   // console.log(data);
-    //   return data;
-    // }
-
-    // async function getImg(index){
-    //   this.loadMore.setAttribute('data-img', 'curated');
-    //   const baseURL = `https://api.pexels.com/v1/curated?page=${index}&per_page=12`;
-    //   const data = await this.fetchImages(baseURL);
-    //   this.GenerateHTML(data.photos)
-    //   console.log(data)
-    // }
-    async function fetchImages(baseURL){
-      const API_KEY = '563492ad6f917000010000015a6703d8ce184eb5b934d24398448a02'
-      const response = await fetch(baseURL, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          Authorization: API_KEY
-        }
-      });
-      const data = await response.json();
-      // console.log(data);
-      return data;
+    rotateBtn.onmouseover = ()=>{
+    in4.classList.add("blockdisplay")
     }
-
-    // var urlbase = '/API-source/api-source.json'
-
-
-  //   fetch(urlbase)
-  // .then(response => response.json())
-  // .then(data =>{
-  //   console.log(data)
-    // for (let i = 0; i<= data.photos.length ; i++){
-    //     console.log(data.photos[i].src.medium)
-    //         imgs.innerHTML += `   
-    //                     <div class=" imgs rounded-3xl truncate mb-7 shadow m-2">
-    //                     <img src=${data.photos[i].src.medium} alt="" class="img-style hover:transform15 ">
-    //                   </div>
-    //                           `
-    //          imgss.appendChild(imgs)
-    // }
-        // data.photos.map(function(photo){
-        //   console.log(photo.src.medium)
-        //     var image =   `   
-        //                 <div class="rounded-3xl truncate mb-7 shadow m-2">
-        //                 <img src=${photo.src.medium} alt="" class="img-style hover:transform15 ">
-        //               </div>
-        //                `
-        //     imgs.innerHTML += image
-        //     imgs.appendChild(image)
-        // console.log(data.photos)
-           
-
-        // })
-// }
+    rotateBtn.onmouseout = ()=>{
+      in4.classList.remove("blockdisplay")
+      }
+      in4.onmouseover = ()=>{
+        in4.classList.add("blockdisplay")
+        }
+        in4.onmouseout = ()=>{
+          in4.classList.remove("blockdisplay")
+          }
 
 
-
-
-/*-----------------------------------------------login page---------------------------------------------------- */
-
-/*-----------------------------------------------------------signup------------------------------------- */
-
-    
-
-
-
-  
-
-/*--------------------------------------------gallery-homepage----------------------------------------- */
-
+    // setCookie()
+//     function setCookie(cname, cvalue, exdays) {
+//       const d = new Date();
+//       d.setTime(d.getTime() + (exdays*24*60*60*1000));
+//       let expires = "expires="+ d.toUTCString();
+//       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+//     }
+   

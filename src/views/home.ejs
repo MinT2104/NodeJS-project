@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <title>MyStories</title>
-    <script type="text/javascript" src="./JS/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://unpkg.com/scrollreveal"></script>
    <script>
         tailwind.config = {
           theme: {
@@ -16,7 +14,8 @@
               colors: {
                 primary: '#ccc',
                 hide: '#777777',
-                orange: '#F64C72'
+                orange: '#F64C72',
+                blacka: '#41436A'
 
               }
              
@@ -108,12 +107,16 @@
                 .nonedisplay{
                 display: none;
               }
+              .blockdisplay{
+                display: block;
+              }
               .border-gal{
                 border: 5px solid black;
                 outline: none
                 
               }
               .popupHello{
+              
                 top:20px;
                 left: 50%;
                 transform: translateX(-50%)
@@ -125,14 +128,71 @@
     
 </head>
 
-<body class="borderbox bg-strong">
-  <div class="animate-fade-in-down popupHello bg-white w-96 h-20 text-center text-xl shadow font-semibold flex items-center justify-center absolute rounded-3xl flex-col">
-    Welcome, <%=decoded %>!
-    <p class="font-medium text-sm">let's explore my website</p>
-    </div>
+<body class="borderbox bg-strong relative">
+
     <header class="flex justify-center h-20 transparentcl">
       
         <div class="flex items-center justify-between w-4/5 p-4 font-semibold text-white-500 max-w-1280">
+          <div class="navMobie nonedisplay md:nonedisplay bg-blacka text-white absolute top-20 w-full left-0 z-20">
+            <nav class="w-full md:block h-fit">
+              <ul class="flex flex-col justify-evenly cursor-pointer md:text-black">
+                  <li class="font-semibold hover:text-primary duration-300 p-3 ml-10">
+                  <a href="/users" class="text-white">Home</a>
+                  </li>
+                  <li class="font-semibold hover:text-primary duration-300 p-3 ml-10">
+                  <a href="/users/gallery"class="white" >My Gallery</a>
+                  </li>
+                  <li class="font-semibold hover:text-primary duration-300 p-3 ml-10">
+                  <a href="/users/blogs" class="text-white">Blogs</a>
+                  </li>
+                  <li class="font-semibold hover:text-primary duration-300 p-3">
+                    <div class="flex flex-row "> 
+                      <div class="blockdisplay nonedisplay userWraper relative w-fit borderbox">
+                       <div class=" userBtn flex flex-row gap-3 p-2 text-white px-3 justify-center items-center w-48 gap-2 cursor-pointer">
+                       <div class="w-8 h-8 rounded-full bg-red-500 truncate">
+                         <img src="/img/avatar1.jpg" alt="">
+                       </div>
+                       <span class="w-fit"><p class="text-white nameUser"><%=decoded['username']%></p></span>
+                      </div>
+                      
+                     </div>
+                  
+                   </div>
+                  </li>
+                  <li class="font-semibold hover:text-primary duration-300 p-5">
+                    <ul class="userNav bg-blacka flex justify-left rounded-xl w-fit nonedisplay z-40">
+                      <li class="flex flex-row gap-5 m-2 text-white px-3 w-fit cursor-pointer hover:transform15 mb-10"><span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
+                      </span><a href="/users/userprofile"><h2>Your Profile</h2></a></li>
+                      <li class="flex flex-row gap-5 m-2 text-white px-3 w-fit cursor-pointer hover:transform15 mb-10"><span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                        </svg>
+                      </span> <h2>Saved</h2></li>
+                      <li class="flex flex-row gap-5 m-2 text-white px-3 w-fit cursor-pointer hover:transform15 mb-10"><span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                      </span> <h2>Help</h2>
+                    </li>
+                    
+                        <li class="m-2 text-white px-3 w-fit flex cursor-pointer hover:transform15 mb-10">
+                          <a href="/logout" class="flex flex-row gap-5">
+                          <span>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+                              </svg>
+                          </span>
+                          <h2>Log Out</h2>
+                          </a>
+                      </li> </ul>
+                  </li>
+              </ul>
+          </nav> 
+    
+            </div>
     
             <div class=" w-1/4 lg:w-1/3 cursor-pointer text-3xl font-black md:text-center">
               <a href="/users" class="text-center text-orange">My<span class="text-black">Stories</span></a>  
@@ -142,9 +202,7 @@
                     <li class="font-semibold hover:text-primary duration-300">
                     <a href="/users" class="text-black">Home</a>
                     </li>
-                    <li class="font-semibold hover:text-primary duration-300">
-                      <a href="/users/about" class="text-black">About</a>
-                    </li>
+          
                     <li class="font-semibold hover:text-primary duration-300">
                     <a href="/users/gallery"class="text-black" >My Gallery</a>
                     </li>
@@ -154,12 +212,57 @@
                 </ul>
             </nav> 
             <div class="flex flex-row"> 
+              <% if(!decoded){%>
               <a href="/users/login">
               <button  type="submit" class="bg-orange text-white w-1/4 hover:text-black hover:bg-white rounded-full w-40 sm:visible invisible h-10 hover:bg-none duration-700 ">
                 Đăng nhập
               </button>
             </a>
-            <div class="cursor-pointer">
+            <%}%>
+            <% if(decoded){%>
+             <div class=" sm:blockdisplay nonedisplay userWraper relative w-fit borderbox">
+              <div class=" userBtn flex flex-row gap-3 p-2 text-white px-3 justify-center items-center w-48 gap-2 cursor-pointer">
+              <div class="w-8 h-8 rounded-full bg-red-500 truncate">
+                <img src="/img/avatar1.jpg" alt="">
+              </div>
+              <span class="w-fit"><p class="text-black"><%=decoded['username']%></p></span>
+             </div>
+             <ul class="userNav bg-blacka absolute rounded-xl nonedisplay w-fit">
+              <li class="flex flex-row gap-3 m-2 text-white px-3 w-fit cursor-pointer hover:transform15"><span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+              </span><a href="/users/userprofile"><h2>Your Profile</h2></a></li>
+              <li class="flex flex-row gap-3 m-2 text-white px-3 w-fit cursor-pointer hover:transform15"><span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                </svg>
+              </span> <h2>Saved</h2></li>
+              <li class="flex flex-row gap-3 m-2 text-white px-3 w-fit cursor-pointer hover:transform15"><span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+              </span> <h2>Help</h2>
+            </li>
+             
+                <li class="m-2 text-white px-3 w-fit cursor-pointer hover:transform15">
+                  <a href="/logout" class="flex flex-row gap-3">
+                   <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+                      </svg>
+                  </span>
+                   <h2>Log Out</h2>
+                  </a>
+               </li>
+              
+              
+              
+             </ul>
+            </div>
+             
+            <%}%>
+            <div class="cursor-pointer navPopup">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 visible md:invisible mx-4 md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h8m-8 6h16">
               </svg>
@@ -167,26 +270,27 @@
           </div>
            
         </div>
+        
     </header>
     <main class="flex justify-center md:block flex-col bg-light">
           <section class=" corner1 flex md:flex-row flex-col md:justify-evenly md:py-16 md:pb-32 gap-10 z-10 pb-20 pt-20 sm:py-36 bg-white md:w-full transparentcl "> 
-            <div class="sm:w-80 mx-auto lg:w-80 lg:w-fit md:mx-0 flex items-center justify-center sm:justify-center">
+            <div class="Left sm:w-80 mx-auto lg:w-80 lg:w-fit md:mx-0 flex items-center justify-center sm:justify-center">
                 <img src="/img/item-2.png" alt="" class=" md:w-4/5 sm:w-4/5 w-72 md:h-auto mx-auto">
               </div>
-              <div class="flex flex-col font-semibold sm:justify-center gap-2 sm:font-black sm:w-full sm:w-full md:w-fit">
+              <div class="Right flex flex-col font-semibold sm:justify-center gap-2 sm:font-black sm:w-full sm:w-full md:w-fit">
                   <h1 class="sm:text-6xl text-4xl text-center text-orange ">Hello,</h1>
                   <h1 class="text-sm sm:text-lg text-center">Welcome to<span class="sm:text-5xl text-3xl text-orange">  My</span><span class=" text-5xl">Stories</span><h1>
                     <p class="text-sm sm:text-lg  text-center ">Let's discover my Website</p>
               </div>
           </section>
            <section class="w-full z-20 h-auto">
-            <div class="bg-light">
+            <div class="bg-light Bottom">
               <h1 class=" font-bold text-5xl text-center p-5 ">My Knowledge</h1>
               <p class=" font-semibld text-sm text-center ">Let me show you my Knowledge!</p>
             </div>
             <div class="bg-light w-fit py-32 h-fit p-5 md:p-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-cols-4 mx-auto gap-20">
             
-                    <div class=" bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Top bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                         <img src="/img/icon-1.png" alt="" class="w-20 mx-auto mb-5">
                         <h3 class="font-bold mb-5">HTML 5</h3>
                         <a href="https://html.com/" class=""><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700">
@@ -195,7 +299,7 @@
                         </a>
                     </div>
             
-                    <div class="bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Bottom bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                         <img src="/img/icon-2.png" alt="" class="w-20 mx-auto mb-5">
                         <h3 class="font-bold mb-5">CSS 3</h3>
                         <a href="https://www.w3schools.com/Css/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -204,7 +308,7 @@
                       </a>
                     </div>
             
-                    <div class="bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Top bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                         <img src="/img/icon-3.png" alt="" class="w-20 mx-auto mb-5">
                         <h3 class="font-bold mb-5">JavaScript</h3>
                         <a href="https://www.javascript.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -213,7 +317,7 @@
                       </a>
                     </div>
             
-                    <div class="bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Bottom bg-white shadow text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                         <img src="/img/icon-4.png" class=" w-20 mx-auto mb-10 " alt="">
                         <h3 class="font-bold mb-8">SASS</h3 class="w-20">
                         <a href="https://sass-lang.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -222,7 +326,7 @@
                       </a>
                     </div>
             
-                    <div class="bg-white shadow  text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl"  >
+                    <div class="Top bg-white shadow  text-black text-center py-10 px-6 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl"  >
                         <img src="https://scrollrevealjs.org/img/logomark.svg" alt="" class="w-20 mx-auto mb-7">
                         <h3 class="font-bold mb-10">ScrollReveal</h3>
                         <a href="https://scrollrevealjs.org/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -230,7 +334,7 @@
                         </button></a>
                     </div>
             
-                    <div class="bg-white shadow text-black text-center py-10 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Bottom bg-white shadow text-black text-center py-10 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                         <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg" alt="" class="w-20 mx-auto mb-10">
                         <h3 class="font-bold mb-10">Tailwindcss</h3>
                         <a href="https://tailwindcss.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -238,7 +342,7 @@
                         </button>
                       </a>
                     </div>
-                    <div class="bg-white shadow text-black text-center py-10 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <div class="Top bg-white shadow text-black text-center py-10 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
                       <img src="./img/expressjs.jpg" alt="" class="w-40 mx-auto">
                       <h3 class="font-bold mb-10">ExpressJS</h3>
                       <a href="https://tailwindcss.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
@@ -246,64 +350,71 @@
                       </button>
                     </a>
                   </div>
-            
+                  <div class="Bottom bg-white shadow text-black text-center py-5 w-60 flex flex-col items-center gap-4 h-72 justify-evenly hover:transform15 duration-300 rounded-xl">
+                    <img src="https://cdn.freebiesupply.com/logos/large/2x/mysql-5-logo-png-transparent.png" alt="" class="w-20 mx-auto">
+                    <h3 class="font-bold pb-5">MySQL</h3>
+                    <a href="https://www.mysql.com/"><button  type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-1/4 text-white hover:text-black border-2 hover:border-indigo-600 rounded-full w-40 h-10 hover:bg-none duration-700 ">
+                      Read more
+                    </button>
+                  </a>
+                </div>
             </div>
           </section>
          <section class="flex  flex-col items-center ">
-          <h1 class="font-bold text-5xl text-center p-5 ">My Gallery</h1>
-          <a href="/gallery" class="my-10">
+          <h1 class="font-bold text-5xl text-center p-5 Top">My Gallery</h1>
+          <a href="/users/gallery" class="my-10 Top">
             <button  type="submit" class="bg-orange text-white w-1/4 hover:text-black hover:bg-white rounded-full w-40 h-10  duration-700">
               See More
             </button>
           </a>
                 <div class=" popup w-4/5 h-fit columns-1 sm:columns-2 lg:columns-3 p-10 md:p-20 mx-auto rounded-3xl">
-                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal mt-0 hover:transform15 duration-300 cursor-pointer">
+                    <div class="Left rounded-3xl truncate mb-7 shadow m-2 border-gal mt-0 hover:transform15 duration-300 cursor-pointer">
                         <img src="/img/homegallery-2.jpeg" alt="" >
                     </div>
                   
-                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                    <div class="Left rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                         <img src="/img/homegallery-4.webp" alt="">
                     </div>
-                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                    <div class="Top rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                         <img src="/img/homegallery-3.jpeg" alt="">
                     </div>
-                      <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                      <div class="Top rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                         <img src="/img/homegallery-1.webp" alt="">
                     </div>
-                    <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                    <div class="Top rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                       <img src="/img/homegallery-5.webp" alt="">
                   </div >
-                  <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                  <div class="Right rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                     <img src="/img/homegallery-6.jpeg" alt="">
                 </div>
-                <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
+                <div class="Right rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer">
                   <img src="/img/homegallery-7.webp" alt="">
               </div>
-              <div class="rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer ">
+              <div class="Right rounded-3xl truncate mb-7 shadow m-2 border-gal hover:transform15 duration-300 cursor-pointer ">
                 <img src="/img/homegallery-8.webp" alt="">
             </div>
                       
                 </div>
          </section>
           <section>
-            <div class="corner2 w-full h-96 bg-white mt-60 relative flex justify-center">
+            <div class="Top corner2 w-full h-96 bg-white mt-60 relative flex justify-center">
               <div class=" bg-white absolute alo flex flex-col justify-evenly items-center shadow hover:transform15 duration-300">
-                <div class="w-96 h-12 blacksoft absolute bottom-14 h-auto rounded-full">
-                  <img src="./img/triangle.png" alt="" class="absolute triangle text-gray">
-                  <ul class="flex flex-row justify-evenly p-5 items-center h-fit gap-5 bg-black rounded-full">
-                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                <div class="duration-300 in4 nonedisplay w-72 sm:w-96 h-12 blacksoft absolute bottom-28 h-auto rounded-full">
+                  <!-- <img src="./img/triangle.png" alt="" class="absolute triangle text-gray"> -->
+                  <ul class=" flex flex-row justify-evenly p-5 items-center h-16 sm:h-20 gap-1 sm:gap-5 bg-black rounded-full">
+                    <li class="w-8 sm:w-12 hover:w-14 duration-300 cursor-pointer">
                       <img src="./img/facebook.png" alt="">
                     </li>
-                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                    <li class="w-8 sm:w-12 hover:w-14 duration-300 cursor-pointer">
                       <img src="./img/youtube.png" alt="">
                     </li>
-                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                    <li class="w-8 sm:w-12 hover:w-14 duration-300 cursor-pointer">
                       <img src="./img/instagram.png" alt="">
                     </li>
-                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                    <li class="w-8 sm:w-12 hover:w-14 duration-300 cursor-pointer">
                       <img src="./img/twitter.png" alt="">
                     </li>
-                    <li class="w-12 h-12 hover:w-14 duration-300 cursor-pointer">
+                    <li class="w-8 sm:w-12 hover:w-14 duration-300 cursor-pointer">
                       <img src="./img/telegram.png" alt="">
                     </li>
                   </ul>
@@ -312,7 +423,7 @@
                       <img src="./img/avatar1.jpg" alt="" class="w-28">
                     </div>
                     <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600 hover:rotatee135 duration-700  hover:w-16 hover:h-16 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="rotateBtn h-12 w-12 text-red-600 hover:rotatee135 duration-700  hover:w-16 hover:h-16 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -340,54 +451,14 @@
       
             
           </section>
-        
-         
-          <section>
-            <div class="bg-black w-full h-96">
-
-            </div>
-          </section>
           
     </main>
    
 
 </body>
-<script>
-
-//   const slider = tns({
-// container: '.my-slider',
-// loop: true,
-// items: 1,
-// slideBy: 'page',
-// nav: true,    
-// autoplay: true,
-// speed: 400,
-// autoplayButtonOutput: false,
-// mouseDrag: true,
-// lazyload: true,
-// // controlsContainer: ".main-control",
-// prevButton: ".arrow-right",
-// nextButton: ".arrow-left",
-//     responsive: {
-//       640: {
-//         // edgePadding: 20,
-//         // gutter: 20,
-//         items: 2
-//       },
-//       768: {
-//         // gutter: 30,
-//         items: 2
-//       },
-//       800:{
-//         items: 2
-//       },
-//       850:{
-//         items: 3
-//       },
-//       1000: {
-//         items: 3
-//       }
-//     }
-// });
+<footer class="w-full h-60 bg-black text-white flex justify-center items-center">
+  <p>Copyright by <a href="https://www.facebook.com/pkkute.account.pass" class="text-blue-500">Minh Thắng</a></p> 
+ </footer>
+<script type="text/javascript" src="/JS/index.js">
 </script>
 </html>
